@@ -1,10 +1,10 @@
 package Orchester;
 
 public class Hrac {
-    String meno;
-    String priezvisko;
-    String nastroj;
-    double sadzba;
+    private String meno;
+    private String priezvisko;
+    private String nastroj;
+    private double sadzba;
 
     public Hrac(String meno, String priezvisko, String nastroj, double sadzba) {
         setMeno(meno);
