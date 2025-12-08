@@ -7,5 +7,6 @@ public class Main {
         System.out.println("Hráči v orchestri:");
         System.out.println(hrac1);
         System.out.println(hrac2);
+
     }
 }
