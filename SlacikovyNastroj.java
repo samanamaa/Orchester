@@ -10,7 +10,8 @@ public class SlacikovyNastroj extends StrunovyNastroj {
     }
 
     public void setSekcia(String sekcia) {
-        if (sekcia == null || sekcia.isEmpty()) {
+        if (sekcia == null || sekcia.isEmpty()
+                || !sekcia.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s]+")) {
             this.sekcia = "neznamy";
         } else {
             this.sekcia = sekcia;
@@ -24,12 +25,8 @@ public class SlacikovyNastroj extends StrunovyNastroj {
     @Override
     public String toString() {
         return "SlacikovyNastroj{" +
-                "sekcia='" + getSekcia() + '\'' +
-                ", pocetStrun=" + getPocetStrun() +
-                ", druh='" + getDruh() + '\'' +
-                ", cena=" + getCena() +
-                ", zvuk='" + getZvuk() + '\'' +
-                ", pocet=" + getPocet() +
+                super.toString() +
+                ", sekcia='" + sekcia + '\'' +
                 '}';
     }
 }

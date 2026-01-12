@@ -10,8 +10,8 @@ public class RytmickyNastroj extends Nastroj {
 
     public void setPocetZvukov(int pocetZvukov) {
         this.pocetZvukov = pocetZvukov;
-        if (pocetZvukov < 0)
-            System.out.println("Pocet zvukov nesmie byt mensi ako 0");
+        if (pocetZvukov < 1)
+            System.out.println("Pocet zvukov nesmie byt mensi ako 1");
         else
             this.pocetZvukov = pocetZvukov;
     }
@@ -23,11 +23,9 @@ public class RytmickyNastroj extends Nastroj {
     @Override
     public String toString() {
         return "RytmickyNastroj{" +
-                "pocetZvukov=" + getPocetZvukov() +
-                ", druh='" + getDruh() + '\'' +
-                ", cena=" + getCena() +
-                ", zvuk='" + getZvuk() + '\'' +
-                ", pocet=" + getPocet() +
+                super.toString() +
+                ", pocetZvukov=" + pocetZvukov +
+
                 '}';
     }
 }

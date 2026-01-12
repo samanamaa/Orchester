@@ -14,7 +14,7 @@ public class Hrac {
     }
 
     public void setMeno(String meno) {
-        if (meno != null && !meno.isEmpty()) {
+        if (meno != null && !meno.isEmpty() || meno.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s]+")) {
             this.meno = meno;
         } else {
             this.meno = "neznáme";
@@ -22,7 +22,8 @@ public class Hrac {
     }
 
     public void setPriezvisko(String priezvisko) {
-        if (priezvisko != null && !priezvisko.isEmpty()) {
+        if (priezvisko != null && !priezvisko.isEmpty()
+                || priezvisko.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s]+")) {
             this.priezvisko = priezvisko;
         } else {
             this.priezvisko = "neznáme";
@@ -30,7 +31,8 @@ public class Hrac {
     }
 
     public void setNastroj(String nastroj) {
-        if (nastroj != null && !nastroj.isEmpty()) {
+        if (nastroj != null && !nastroj.isEmpty()
+                || nastroj.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s]+")) {
             this.nastroj = nastroj;
         } else {
             this.nastroj = "neznámy";

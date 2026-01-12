@@ -44,14 +44,14 @@ public class Nastroj {
     }
 
     public void setDruh(String druh) {
-        if (druh == null)
+        if (druh == null || druh.isEmpty() || !druh.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s]+"))
             this.druh = "neznamy";
         else
             this.druh = druh;
     }
 
     public void setZvuk(String zvuk) {
-        if (zvuk == null)
+        if (zvuk == null || zvuk.isEmpty() || !zvuk.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s]+"))
             this.zvuk = "neznamy";
         else
             this.zvuk = zvuk;

@@ -11,15 +11,16 @@ public class StrunovyNastroj extends Nastroj {
     }
 
     public void setPocetStrun(int pocetStrun) {
-        if (pocetStrun < 0) {
-            System.out.println("Pocet strun nesmie byt mensi ako 0");
+        if (pocetStrun < 1) {
+            System.out.println("Pocet strun nesmie byt mensi ako 1");
         } else {
             this.pocetStrun = pocetStrun;
         }
     }
 
     public void setLadenie(String ladenie) {
-        if (ladenie == null || ladenie.isEmpty()) {
+        if (ladenie == null || ladenie.isEmpty()
+                || !ladenie.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s]+")) {
             this.ladenie = "nezname";
         } else {
             this.ladenie = ladenie;
@@ -37,12 +38,9 @@ public class StrunovyNastroj extends Nastroj {
     @Override
     public String toString() {
         return "StrunovyNastroj{" +
-                "pocetStrun=" + pocetStrun +
-                ", druh='" + getDruh() + '\'' +
-                ", cena=" + getCena() +
-                ", zvuk='" + getZvuk() + '\'' +
-                ", pocet=" + getPocet() +
+                super.toString() +
+                ", pocetStrun=" + pocetStrun +
+                ", ladenie='" + ladenie + '\'' +
                 '}';
     }
-
 }

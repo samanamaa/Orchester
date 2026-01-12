@@ -34,9 +34,10 @@ public class DychovyNastroj extends Nastroj {
 
     @Override
     public String toString() {
-        return "Dychovy{" +
-                "pocetDier=" + pocetDier +
-                ", Ladenie='" + Ladenie + '\'' +
-                "} " + super.toString();
+        return "DychovyNastroj{" +
+                super.toString() +
+                ", pocetDier=" + pocetDier +
+                ", ladenie='" + Ladenie + '\'' +
+                "} ";
     }
 }

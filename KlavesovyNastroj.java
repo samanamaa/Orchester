@@ -9,8 +9,8 @@ public class KlavesovyNastroj extends Nastroj {
     }
 
     public void setPocetKlavies(int pocetKlavies) {
-        if (pocetKlavies < 0) {
-            System.out.println("Pocet klavies nesmie byt mensi ako 0");
+        if (pocetKlavies < 1) {
+            System.out.println("Pocet klavies nesmie byt mensi ako 1");
         } else {
             this.pocetKlavies = pocetKlavies;
         }
@@ -23,12 +23,8 @@ public class KlavesovyNastroj extends Nastroj {
     @Override
     public String toString() {
         return "KlavesovyNastroj{" +
-                "pocetKlavies=" + getPocetKlavies() +
-                ", druh='" + getDruh() + '\'' +
-                ", cena=" + getCena() +
-                ", zvuk='" + getZvuk() + '\'' +
-                ", pocet=" + getPocet() +
-                '}';
+                super.toString() +
+                ", pocetKlavies=" + pocetKlavies +
+                "} ";
     }
-
 }
