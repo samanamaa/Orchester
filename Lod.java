@@ -34,6 +34,10 @@ public class Lod extends Nastroj {
         }
     }
 
+    public void vydatZvuk() {
+        System.out.println(getZvuk());
+    }
+
     @Override
     public String toString() {
         return "Loď{" +

@@ -1,7 +1,6 @@
 
 package Orchester;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +8,7 @@ public class Menu {
     public static void showMenu(ArrayList<Nastroj> nastrojList, ArrayList<Hrac> hracList) {
         Scanner scanner = new Scanner(System.in);
         int volba = 0;
-        Lod lod1 = new Lod("Lod1", 1000.0, "Lod", 5, "Krst");
+        Lod lod1 = new Lod("Titanic", 10000000.0, "Tuuut-tuuut", 1, "Krst");
 
         while (volba != 11) {
             System.out.println("\n1. Vypisat nastroje");
@@ -23,7 +22,6 @@ public class Menu {
             System.out.println("9. Orchester hraj");
             System.out.println("10. Krst lode");
             System.out.println("11. Koniec");
-
 
             System.out.print("Vyberte volbu: ");
 
@@ -59,7 +57,7 @@ public class Menu {
                     skladHraj(nastrojList);
                     break;
                 case 6:
-                    vypisAkord(nastrojList,lod1);
+                    vypisAkord(nastrojList, lod1);
                     break;
                 case 7:
                     vypisatNakladyVystupenia(hracList, nastrojList);
@@ -89,7 +87,8 @@ public class Menu {
             return;
         }
         for (Nastroj nastroj : nastrojList) {
-            System.out.println("druh: " + nastroj.getDruh() + ", cena: " + nastroj.getCena() + ", pocet: " + nastroj.getPocet());
+            System.out.println(
+                    "druh: " + nastroj.getDruh() + ", cena: " + nastroj.getCena() + ", pocet: " + nastroj.getPocet());
         }
     }
 
@@ -140,9 +139,9 @@ public class Menu {
                 System.out.println(zvuk);
             }
         }
-    }   
-    
-    public static void vypisAkord(ArrayList<Nastroj> nastrojList,Lod lod1) {
+    }
+
+    public static void vypisAkord(ArrayList<Nastroj> nastrojList, Lod lod1) {
         if (nastrojList == null || nastrojList.isEmpty()) {
             System.out.println("Ziadne nastroje, nic nehrajeme.");
             return;
@@ -154,10 +153,10 @@ public class Menu {
                 System.out.println(akord);
             }
         }
-        System.out.println(lod1.getZvuk());
-        
+        lod1.vydatZvuk();
     }
-    public static void vypisatNakladyVystupenia(ArrayList<Hrac> hracList,ArrayList<Nastroj> nastrojList) {
+
+    public static void vypisatNakladyVystupenia(ArrayList<Hrac> hracList, ArrayList<Nastroj> nastrojList) {
         if (hracList == null || hracList.isEmpty()) {
             System.out.println("Ziadni hraci.");
             return;
@@ -172,11 +171,12 @@ public class Menu {
             naklady += hrac.getSadzba();
         }
         for (Nastroj nastroj : nastrojList) {
-            naklady += nastroj.getCena() * 0.002;
+            naklady += nastroj.getCena() * 0.02;
         }
         System.out.println("Naklady vystupenia: " + naklady);
     }
-    public static void  vypisatObsadenieOrchestra(ArrayList<Hrac> hracList){
+
+    public static void vypisatObsadenieOrchestra(ArrayList<Hrac> hracList) {
         if (hracList == null || hracList.isEmpty()) {
             System.out.println("Ziadni hraci.");
             return;
@@ -185,7 +185,8 @@ public class Menu {
             System.out.println(hrac.getMeno() + " " + hrac.getPriezvisko() + " - " + hrac.getNastroj());
         }
     }
-    public static void orchesterHraj(ArrayList<Hrac> hracList,ArrayList<Nastroj> nastrojList){
+
+    public static void orchesterHraj(ArrayList<Hrac> hracList, ArrayList<Nastroj> nastrojList) {
         if (hracList == null || hracList.isEmpty()) {
             System.out.println("Ziadni hraci, orchester nehra.");
             return;
@@ -197,18 +198,45 @@ public class Menu {
         for (Hrac hrac : hracList) {
             String nastrojHrac = hrac.getNastroj();
             for (Nastroj nastroj : nastrojList) {
-                if (nastroj.getDruh().equals(nastrojHrac)) {
-                    String zvuk = nastroj.getZvuk();
-                    System.out.println(zvuk);
+                if (nastroj instanceof SlacikovyNastroj) {
+                    SlacikovyNastroj sln = (SlacikovyNastroj) nastroj;
+                    if (sln.getSekcia().equals(nastrojHrac) || nastroj.getDruh().equals(nastrojHrac)) {
+                        System.out.println(nastroj.getZvuk());
+                        break;
+                    }
+                } else if (nastroj.getDruh().equals(nastrojHrac)) {
+                    System.out.println(nastroj.getZvuk());
+                    break;
                 }
             }
         }
     }
-    public static void krstLode(ArrayList<Hrac> hracList,ArrayList<Nastroj> nastrojList,Lod lod1){
-        orchesterHraj(hracList, nastrojList);
-        System.out.println(lod1.getZvuk());
-        lod1.spustiNaVodu();
-        System.err.println("Stav lode po krste: " + (lod1.isNaVode() ? "na vode" : "nie na vode"));
 
+    public static void krstLode(ArrayList<Hrac> hracList, ArrayList<Nastroj> nastrojList, Lod lod1) {
+        if (hracList == null || hracList.isEmpty()) {
+            System.out.println("Ziadni hraci, orchester nehra.");
+            return;
+        }
+        if (nastrojList == null || nastrojList.isEmpty()) {
+            System.out.println("Ziadne nastroje, orchester nehra.");
+            return;
+        }
+        for (Hrac hrac : hracList) {
+            String nastrojHrac = hrac.getNastroj();
+            for (Nastroj nastroj : nastrojList) {
+                if (nastroj instanceof SlacikovyNastroj) {
+                    SlacikovyNastroj sln = (SlacikovyNastroj) nastroj;
+                    if (sln.getSekcia().equals(nastrojHrac) || nastroj.getDruh().equals(nastrojHrac)) {
+                        System.out.println(nastroj.getZvuk());
+                        break;
+                    }
+                } else if (nastroj.getDruh().equals(nastrojHrac)) {
+                    System.out.println(nastroj.getZvuk());
+                    break;
+                }
+            }
+        }
+        lod1.vydatZvuk();
+        lod1.spustiNaVodu();
     }
 }
