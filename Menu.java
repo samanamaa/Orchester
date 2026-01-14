@@ -65,7 +65,7 @@ public class Menu {
             return;
         }
         for (Nastroj nastroj : nastrojList) {
-            System.out.println("druh: " + nastroj.getDruh() + " cena: " + nastroj.getCena() + " pocet: " + nastroj.getPocet());
+            System.out.println("druh: " + nastroj.getDruh() + ", cena: " + nastroj.getCena() + ", pocet: " + nastroj.getPocet());
         }
     }
 

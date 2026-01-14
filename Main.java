@@ -59,6 +59,14 @@ public class Main {
                             Integer.parseInt(p[4]),
                             Integer.parseInt(p[5]));
                     nastrojList.add(kn);
+                } else if (p[0].equals("l")) {
+                    Lod lod = new Lod(
+                            p[1],
+                            Double.parseDouble(p[2]),
+                            p[3],
+                            Integer.parseInt(p[4]),
+                            p[5]);
+                    nastrojList.add(lod);
                 } else if (p[0].equals("u")) {
                     Hrac h = new Hrac(
                             p[1],
