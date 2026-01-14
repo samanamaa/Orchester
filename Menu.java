@@ -65,7 +65,7 @@ public class Menu {
             return;
         }
         for (Nastroj nastroj : nastrojList) {
-            System.out.println(nastroj);
+            System.out.println("druh: " + nastroj.getDruh() + " cena: " + nastroj.getCena() + " pocet: " + nastroj.getPocet());
         }
     }
 
@@ -99,8 +99,9 @@ public class Menu {
         double cena = 0;
         for (Hrac hrac : hracList) {
             cena += hrac.getSadzba() * hodiny;
+            System.out.println("Cena vystupenia: " + hrac.getMeno() + " " + hrac.getPriezvisko() + ": " + cena);
+
         }
-        System.out.println("Cena vystupenia: " + cena);
     }
 
     public static void skladHraj(ArrayList<Nastroj> nastrojList) {

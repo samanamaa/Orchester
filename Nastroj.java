@@ -51,7 +51,7 @@ public class Nastroj {
     }
 
     public void setZvuk(String zvuk) {
-        if (zvuk == null || zvuk.isEmpty() || !zvuk.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s]+"))
+        if (zvuk == null || zvuk.isEmpty() || !zvuk.matches("[a-zA-ZáäčďéěíľĺňóôöřšťúůüýžÁÄČĎÉĚÍĽĹŇÓÔÖŘŠŤÚŮÜÝŽ\\s-]+"))
             this.zvuk = "neznamy";
         else
             this.zvuk = zvuk;

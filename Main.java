@@ -71,11 +71,8 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        for (Nastroj nastroj : nastrojList) {
-            System.out.println(nastroj);
-        }
-        for (Hrac hrac : hracList) {
-            System.out.println(hrac);
-        }
+
+        Menu.showMenu(nastrojList, hracList);
+
     }
 }
