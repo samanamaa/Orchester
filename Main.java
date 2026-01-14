@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Nastroj> nastrojList = new ArrayList<>();
         ArrayList<Hrac> hracList = new ArrayList<>();
-
         File f = new File("orchester.txt");
 
         try (Scanner reader = new Scanner(f, "UTF-8")) {
